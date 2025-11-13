@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vishal Muralidharan</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff' d='M9 3h6l2 2h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4l2-2zm3 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/album-base.css" />
+  <link rel="stylesheet" href="../css/theme-andaman.css" />
+  <meta name="color-scheme" content="dark">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<body data-album="andaman">
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="../../index.html"><i class="ri-camera-3-line"></i><span class="dot">.</span></a>
+      <nav class="menu" data-nav>
+        <a href="../../index.html#albums">Albums</a>
+      </nav>
+      <button class="toggle" data-nav-toggle aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>  <main class="container">
+    <section class="album-page-hero">
+      <div class="album-intro">
+        <h1>Andaman</h1>
+        <p class="album-desc">Islands & coast</p>
+      </div>
+      <div class="album-hero-img">
+        <img src="../../Photos/Andaman/hero-andaman.jpg" alt="Andaman cover"/>
+      </div>
+    </section>
+
+    <section class="flipbook-wrapper">
+      <div class="pages" data-flipbook></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container"><span class="credit">© <span id="year"></span> Vishal Muralidharan</span></div>
+  </footer>
+
+  <div class="flip-controls">
+    <button aria-label="Previous" data-prev><i class="ri-arrow-left-s-line"></i></button>
+    <button aria-label="Next" data-next><i class="ri-arrow-right-s-line"></i></button>
+  </div>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script src="../js/data.js"></script>
+  <script src="../js/hero-layout.js"></script>
+  <script src="../js/album.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

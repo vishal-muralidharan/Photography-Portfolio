@@ -1,0 +1,314 @@
+/* Base album layout + flipbook elements shared */
+:root {
+  --accent: var(--accent, #ff6a00);
+}
+
+/* Album page hero - name left, photo right (portrait images) */
+.album-page-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 0 60px;
+}
+
+.album-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+}
+
+.album-intro h1 {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  color: var(--accent);
+}
+
+.album-desc {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  color: #888;
+  margin: 0;
+  font-weight: 400;
+}
+
+.album-hero-img {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 125%;
+  overflow: hidden;
+  border-radius: 2px;
+  cursor: zoom-in;
+}
+
+.album-hero-img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s ease;
+}
+
+.album-hero-img:hover img {
+  transform: scale(1.05);
+}
+
+/* Landscape layout - name top, photo below */
+.album-page-hero.landscape-hero {
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 20px 0 40px;
+  align-items: start;
+}
+
+.album-page-hero.landscape-hero .album-intro {
+  text-align: center;
+  align-items: center;
+}
+
+.album-page-hero.landscape-hero .album-hero-img {
+  padding-bottom: 60%;
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  .album-page-hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 20px 0 40px;
+  }
+  
+  .album-hero-img {
+    padding-bottom: 80%;
+  }
+  
+  .album-page-hero.landscape-hero .album-hero-img {
+    padding-bottom: 70%;
+  }
+}
+
+/* Old album hero (kept for backwards compatibility) */
+.album-hero {
+  position: relative;
+  margin: 0 0 28px 0;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.album-hero img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.album-hero .title {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  font-size: clamp(34px, 6vw, 76px);
+  line-height: .9;
+  font-weight: 700;
+  text-shadow: 0 4px 30px #0008;
+}
+
+.album-hero .badge {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: var(--accent);
+  color: #000;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.flipbook-wrapper {
+  position: relative;
+}
+
+.pages {
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  display: flex;
+  gap: 20px;
+  padding-bottom: 10px;
+  scroll-behavior: smooth;
+}
+
+.pages::-webkit-scrollbar {
+  height: 10px;
+}
+
+.pages::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+
+.spread {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.spread-grid {
+  column-count: 3;
+  column-gap: 14px;
+}
+
+.spread-grid .shot {
+  margin: 0 0 14px 0;
+  break-inside: avoid;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: #111;
+  cursor: zoom-in;
+}
+
+.spread-grid .shot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: filter .3s ease, transform .3s ease;
+  cursor: zoom-in;
+}
+
+.spread-grid .shot:hover img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 1000px) {
+  .spread-grid {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 700px) {
+  .spread-grid {
+    column-count: 1;
+  }
+}
+
+/* Lightbox - fullscreen image preview */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: #000e;
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  z-index: 100;
+  padding: 20px;
+}
+
+.lightbox.hidden {
+  display: none;
+}
+
+.lb-img {
+  max-width: 95vw;
+  max-height: 95vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 10px 60px #000;
+}
+
+.lb-close,
+.lb-prev,
+.lb-next {
+  position: fixed;
+  background: #111e;
+  border: 1px solid var(--border);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  font-size: 24px;
+  transition: all .3s ease;
+  z-index: 101;
+}
+
+.lb-close:hover,
+.lb-prev:hover,
+.lb-next:hover {
+  background: var(--accent);
+  color: #000;
+  transform: scale(1.1);
+}
+
+.lb-close {
+  top: 20px;
+  right: 20px;
+}
+
+.lb-prev {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lb-next {
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lb-prev:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lb-next:hover {
+  transform: translateY(-50%) scale(1.1);
+}
+
+.flip-controls {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 40px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.flip-controls button {
+  pointer-events: auto;
+  background: #111e;
+  border: 1px solid var(--border);
+  color: #fff;
+  font-size: 24px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  backdrop-filter: blur(4px);
+  transition: all .3s ease;
+}
+
+.flip-controls button:hover {
+  background: var(--accent);
+  color: #000;
+}
+
+.flip-controls button:disabled {
+  opacity: 0;
+  pointer-events: none;
+}

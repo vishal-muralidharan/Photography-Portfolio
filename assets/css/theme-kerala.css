@@ -1,0 +1,11 @@
+:root {
+  --accent: #34d399;
+}
+
+.album-hero .badge {
+  box-shadow: 0 6px 20px #34d39933;
+}
+
+.flip-controls button:hover {
+  box-shadow: 0 8px 24px #34d39944;
+}

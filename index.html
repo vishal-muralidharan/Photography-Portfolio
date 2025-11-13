@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vishal Muralidharan</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><path fill='%23ffffff' d='M9 3h6l2 2h4a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h4l2-2zm3 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z'/></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="Photos/Andaman/hero-andaman.jpg" />
+  <link rel="preload" as="image" href="Photos/Landscape/hero-landscape.jpg" />
+  <link rel="preload" as="image" href="Photos/Andaman/30.jpg" />
+  <link rel="preload" as="image" href="Photos/Birds/cover-birds.jpg" />
+  <link rel="preload" as="image" href="Photos/Diwali/cover-diwali.jpg" />
+  <link rel="preload" as="image" href="Photos/Kerala/Boats/cover-kerala.jpg" />
+  <link rel="preload" as="image" href="Photos/Landscape/cover-landscape.jpg" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
+  <meta name="color-scheme" content="dark">
+</head>
+<body>
+  <header class="header">
+    <div class="container nav">
+      <a class="brand" href="index.html"><i class="ri-camera-3-line"></i><span class="dot">.</span></a>
+      <nav class="menu" data-nav>
+        <a href="#albums">Albums</a>
+      </nav>
+      <button class="toggle" data-nav-toggle aria-label="Toggle navigation">Menu</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div>
+        <div class="title-row">
+          <h1>Vishal<br>Muralidharan</h1>
+        </div>
+  <p class="lead">Amateur photographer—people, places, and little moments.</p>
+      </div>
+      <div class="portrait hero-rotator" id="hero-rotator">
+        <img class="active" src="Photos/Andaman/hero-andaman.jpg" alt="Showcase" />
+        <img class="next" alt="Showcase next" />
+      </div>
+    </section>
+
+    <section class="section index-albums-section" id="albums" aria-label="Albums">
+      <div class="albums-split">
+  <a class="panel" href="assets/pages/andaman.html" style="--img:url('../../Photos/Andaman/cover-andaman.jpg')">
+          <div class="panel-overlay">
+            <h3>Andaman</h3>
+            <span>Islands & coast</span>
+          </div>
+        </a>
+  <a class="panel" href="assets/pages/birds.html" style="--img:url('../../Photos/Birds/cover-birds.jpg')">
+          <div class="panel-overlay">
+            <h3>Birds</h3>
+            <span>Feathers in flight</span>
+          </div>
+        </a>
+  <a class="panel" href="assets/pages/diwali.html" style="--img:url('../../Photos/Diwali/cover-diwali.jpg')">
+          <div class="panel-overlay">
+            <h3>Diwali</h3>
+            <span>Lights & sparks</span>
+          </div>
+        </a>
+  <a class="panel" href="assets/pages/kerala.html" style="--img:url('../../Photos/Kerala/cover-kerala.jpg')">
+          <div class="panel-overlay">
+            <h3>Kerala</h3>
+            <span>Backwaters & streets</span>
+          </div>
+        </a>
+  <a class="panel" href="assets/pages/landscape.html" style="--img:url('../../Photos/Landscape/cover-landscape.jpg')">
+          <div class="panel-overlay">
+            <h3>Landscape</h3>
+            <span>Scenes & horizons</span>
+          </div>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <span class="credit">© <span id="year"></span> Vishal Muralidharan</span>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/hero.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
