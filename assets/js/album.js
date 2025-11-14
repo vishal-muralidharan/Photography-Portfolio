@@ -35,6 +35,7 @@
       imgEl.loading = 'lazy';
       imgEl.decoding = 'async';
       imgEl.addEventListener('load', ()=> imgEl.classList.add('loaded'));
+      imgEl.addEventListener('error', ()=> fig.remove());
       fig.appendChild(imgEl);
       wrapper.appendChild(fig);
     });
@@ -46,8 +47,11 @@
     if(!album){return;}
     const allImages = album.images || [];
     
-    // Filter out hero and cover images from the flipbook display
-    const flipbookImages = allImages.filter(img => !img.startsWith('hero-') && !img.startsWith('cover-'));
+    // Filter out hero/cover entries and drop blanks, preventing empty slots
+    const flipbookImages = allImages
+      .filter(img => typeof img === 'string')
+      .map(img => img.trim())
+      .filter(img => img && !img.toLowerCase().startsWith('hero-') && !img.toLowerCase().startsWith('cover-'));
     
     // Calculate optimal images per spread for better distribution
     const totalImages = flipbookImages.length;
