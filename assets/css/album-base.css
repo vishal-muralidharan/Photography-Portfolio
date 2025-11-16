@@ -77,19 +77,69 @@
   max-width: 100%;
 }
 
-@media (max-width: 900px) {
+/* Tablet layout for album hero */
+@media (max-width: 1100px) and (min-width: 601px) {
   .album-page-hero {
     grid-template-columns: 1fr;
-    gap: 40px;
-    padding: 20px 0 40px;
+    gap: 32px;
+    padding: 30px 0 40px;
+    min-height: auto;
+  }
+  
+  .album-intro {
+    gap: 12px;
   }
   
   .album-hero-img {
-    padding-bottom: 80%;
+    padding-bottom: 85%;
+    max-height: 65vh;
+  }
+  
+  .album-page-hero.landscape-hero {
+    gap: 28px;
   }
   
   .album-page-hero.landscape-hero .album-hero-img {
-    padding-bottom: 70%;
+    padding-bottom: 55%;
+    max-height: 55vh;
+  }
+}
+
+@media (max-width: 900px) {
+  .album-page-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 20px 0 30px;
+    min-height: auto;
+  }
+  
+  .album-intro {
+    gap: 8px;
+  }
+  
+  .album-intro h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem);
+  }
+  
+  .album-desc {
+    font-size: 1.1rem;
+  }
+  
+  .album-hero-img {
+    padding-bottom: 0;
+    height: auto;
+    max-height: none;
+    width: 100%;
+  }
+  
+  .album-hero-img img {
+    position: relative;
+    height: auto;
+  }
+  
+  .album-page-hero.landscape-hero .album-hero-img {
+    padding-bottom: 0;
+    max-height: none;
   }
 }
 

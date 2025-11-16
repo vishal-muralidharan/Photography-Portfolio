@@ -60,4 +60,10 @@
     swapTo(pick());
     start();
   });
+  
+  // Click/tap to advance to next image
+  container.addEventListener('click', ()=>{
+    swapTo(pick());
+    start();
+  });
 })();
