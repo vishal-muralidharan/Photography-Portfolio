@@ -279,6 +279,9 @@ a {
   overflow: hidden;
   border: 1px solid var(--border);
   background: #0d0f12;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   display: block;
   transition: flex .5s ease;
   z-index: 1;
@@ -288,10 +291,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background-image: var(--img);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  background: inherit;
   filter: grayscale(1) brightness(.6) contrast(1.05);
   transition: transform .6s ease, filter .6s ease;
   z-index: 1;
