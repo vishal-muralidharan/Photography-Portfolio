@@ -279,13 +279,20 @@ a {
   overflow: hidden;
   border: 1px solid var(--border);
   background: #0d0f12;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   display: block;
-  transition: flex .5s ease, filter .6s ease, transform .6s ease;
-  z-index: 1;
+  transition: flex .5s ease;
+}
+
+.albums-split .panel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   filter: grayscale(1) brightness(.6) contrast(1.05);
+  transition: transform .6s ease, filter .6s ease;
+  z-index: 1;
+  will-change: transform, filter;
 }
 
 .albums-split .panel .panel-overlay {
@@ -317,7 +324,6 @@ a {
 
 .albums-split:hover .panel:hover {
   flex: 5;
-  filter: none;
 }
 
 .albums-split:hover .panel .panel-overlay {
@@ -326,6 +332,11 @@ a {
 
 .albums-split:hover .panel:hover .panel-overlay {
   opacity: 1;
+}
+
+.albums-split .panel:hover img {
+  transform: scale(1.02);
+  filter: none;
 }
 
 /* Kerala split section - full height display */
