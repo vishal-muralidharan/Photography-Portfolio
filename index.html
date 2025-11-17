@@ -11,6 +11,9 @@
   <link rel="stylesheet" href="assets/css/styles.css" />
   <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet" />
   <meta name="color-scheme" content="dark">
+  <link rel="preload" as="image" href="Photos/Andaman/hero-andaman.jpg" fetchpriority="high">
+  <link rel="preload" as="image" href="Photos/Kerala/cover-kerala.jpg">
+  <link rel="preload" as="image" href="Photos/Birds/cover-birds.jpg">
 </head>
 <body>
   <header class="header">
@@ -32,8 +35,8 @@
   <p class="lead">Amateur photographer—people, places, and little moments.</p>
       </div>
       <div class="portrait hero-rotator" id="hero-rotator">
-        <img class="active" src="Photos/Andaman/hero-andaman.jpg" alt="Showcase" />
-        <img class="next" alt="Showcase next" />
+        <img class="active" src="Photos/Andaman/hero-andaman.jpg" alt="Showcase" fetchpriority="high" decoding="async" />
+        <img class="next" alt="Showcase next" decoding="async" />
       </div>
     </section>
 
@@ -41,35 +44,35 @@
       <h2 class="albums-heading">Albums</h2>
       <div class="albums-split">
   <a class="panel" href="assets/pages/kerala.html">
-          <img src="Photos/Kerala/cover-kerala.jpg" alt="Kerala album cover" loading="eager" />
+          <img src="Photos/Kerala/cover-kerala.jpg" alt="Kerala album cover" loading="eager" decoding="async" fetchpriority="high" />
           <div class="panel-overlay">
             <h3>Kerala</h3>
             <span>Backwaters & streets</span>
           </div>
         </a>
   <a class="panel" href="assets/pages/birds.html">
-          <img src="Photos/Birds/cover-birds.jpg" alt="Birds album cover" loading="eager" />
+          <img src="Photos/Birds/cover-birds.jpg" alt="Birds album cover" loading="eager" decoding="async" fetchpriority="high" />
           <div class="panel-overlay">
             <h3>Birds</h3>
             <span>Feathers in flight</span>
           </div>
         </a>
   <a class="panel" href="assets/pages/andaman.html">
-          <img src="Photos/Andaman/cover-andaman.jpg" alt="Andaman album cover" loading="eager" />
+          <img src="Photos/Andaman/cover-andaman.jpg" alt="Andaman album cover" loading="eager" decoding="async" />
           <div class="panel-overlay">
             <h3>Andaman</h3>
             <span>Islands & coast</span>
           </div>
         </a>
   <a class="panel" href="assets/pages/landscape.html">
-          <img src="Photos/Landscape/cover-landscape.jpg" alt="Landscape album cover" loading="eager" />
+          <img src="Photos/Landscape/cover-landscape.jpg" alt="Landscape album cover" loading="eager" decoding="async" />
           <div class="panel-overlay">
             <h3>Landscape</h3>
             <span>Scenes & horizons</span>
           </div>
         </a>
   <a class="panel" href="assets/pages/diwali.html">
-          <img src="Photos/Diwali/cover-diwali.jpg" alt="Diwali album cover" loading="eager" />
+          <img src="Photos/Diwali/cover-diwali.jpg" alt="Diwali album cover" loading="eager" decoding="async" />
           <div class="panel-overlay">
             <h3>Diwali</h3>
             <span>Lights & sparks</span>
