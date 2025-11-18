@@ -148,8 +148,8 @@ a {
   position: relative;
   height: clamp(400px, 75vh, 900px);
   background: #0d0f12;
-  width: min(130%, 100vw);
-  max-width: 100%;
+  width: 150%;
+  max-width: 150%;
   cursor: pointer;
 }
 
