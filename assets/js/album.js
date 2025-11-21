@@ -21,6 +21,7 @@
       <button class="lb-prev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>
       <img class="lb-img" alt="photo"/>
       <button class="lb-next" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>
+      <div class="lb-counter"></div>
     `;
     document.body.appendChild(lb);
     return lb;
@@ -61,6 +62,7 @@
     const container = document.querySelector('[data-flipbook]');
     const lb = buildLightbox();
     const lbImg = lb.querySelector('.lb-img');
+    const lbCounter = lb.querySelector('.lb-counter');
     let currentIndex = 0;
     const shots = [];
 
@@ -86,9 +88,22 @@
       });
     });
 
+    function updateCounter(){
+      if(lbCounter && shots.length > 0){
+        lbCounter.textContent = `${currentIndex + 1} / ${shots.length}`;
+      }
+    }
     function open(img){
       currentIndex = shots.indexOf(img);
-      lbImg.src = img.src;
+      if(currentIndex === -1) {
+        // Image not in shots array (e.g., hero image), just show it
+        lbImg.src = img.src;
+        if(lbCounter) lbCounter.style.display = 'none';
+      } else {
+        lbImg.src = img.src;
+        if(lbCounter) lbCounter.style.display = 'block';
+        updateCounter();
+      }
       lb.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
     }
@@ -99,6 +114,7 @@
     function step(d){
       currentIndex = (currentIndex + d + shots.length) % shots.length;
       lbImg.src = shots[currentIndex].src;
+      updateCounter();
     }
     
     // Add lightbox to hero image as well
@@ -106,9 +122,7 @@
     if(heroImg){
       heroImg.style.cursor = 'zoom-in';
       heroImg.addEventListener('click', ()=>{
-        lbImg.src = heroImg.src;
-        lb.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
+        open(heroImg);
       });
     }
     
