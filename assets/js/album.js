@@ -35,8 +35,16 @@
       imgEl.alt = `Photo ${idx+1}`;
       imgEl.loading = 'lazy';
       imgEl.decoding = 'async';
-      imgEl.addEventListener('load', ()=> imgEl.classList.add('loaded'));
-      imgEl.addEventListener('error', ()=> fig.remove());
+      // Debug log for image loading
+      console.log('Loading image:', imgEl.src);
+      imgEl.addEventListener('load', ()=> {
+        imgEl.classList.add('loaded');
+        console.log('Loaded image:', imgEl.src);
+      });
+      imgEl.addEventListener('error', ()=> {
+        console.error('Error loading image:', imgEl.src);
+        fig.remove();
+      });
       fig.appendChild(imgEl);
       wrapper.appendChild(fig);
     });
