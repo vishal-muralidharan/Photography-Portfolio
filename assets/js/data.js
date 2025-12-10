@@ -44,6 +44,16 @@ const AlbumsData = [
     ]
   },
   {
+    id: 'goa',
+    title: 'Goa',
+    path: 'Photos/Goa',
+    images: [
+      'hero-goa.jpg','cover-goa.jpg'
+      // Add more images as needed
+    ],
+    children: []
+  },
+  {
     id: 'landscape',
     title: 'Landscape',
     path: 'Photos/Landscape',
