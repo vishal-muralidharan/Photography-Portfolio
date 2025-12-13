@@ -24,26 +24,35 @@
     </div>
   </header>
   <main class="container">
-    <section class="album-page-hero">
-      <div class="album-intro">
-        <h1>Goa</h1>
-        <p class="album-desc">Beaches & culture</p>
+    <section class="section goa-split-section" id="goa-sub" aria-label="Goa Albums">
+      <div class="albums-split">
+        <a class="panel" href="goa-churches.html">
+          <img src="../../Photos/Goa/churches/cover-churches.jpg" alt="Goa Churches album cover" loading="eager" decoding="async" />
+          <div class="panel-overlay">
+            <h3>Churches</h3>
+            <span>Historic</span>
+          </div>
+        </a>
+        <a class="panel" href="goa-coast.html">
+          <img src="../../Photos/Goa/coast/cover-coast.jpg" alt="Goa Coast album cover" loading="eager" decoding="async" />
+          <div class="panel-overlay">
+            <h3>Coast</h3>
+            <span>Beaches</span>
+          </div>
+        </a>
+        <a class="panel" href="goa-streets.html">
+          <img src="../../Photos/Goa/streets/cover-streets.jpg" alt="Goa Streets album cover" loading="eager" decoding="async" />
+          <div class="panel-overlay">
+            <h3>Streets</h3>
+            <span>Vibrant</span>
+          </div>
+        </a>
       </div>
-      <div class="album-hero-img">
-        <img src="../../Photos/Goa/hero-goa.jpg" alt="Goa cover" decoding="async" loading="eager" />
-      </div>
-    </section>
-    <section class="flipbook-wrapper">
-      <div class="pages" data-flipbook></div>
     </section>
   </main>
   <footer class="footer">
     <div class="container"><span class="credit">© <span id="year"></span> Vishal Muralidharan</span></div>
   </footer>
-  <div class="flip-controls">
-    <button aria-label="Previous" data-prev><i class="ri-arrow-left-s-line"></i></button>
-    <button aria-label="Next" data-next><i class="ri-arrow-right-s-line"></i></button>
-  </div>
   <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
   <script src="../js/data.js"></script>
   <script src="../js/hero-layout.js"></script>
