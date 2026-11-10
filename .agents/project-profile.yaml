@@ -1,0 +1,65 @@
+schema_version: 2
+project:
+  name: PP
+  mode: existing
+  platforms:
+  - web
+  summary: Personal photography and gallery static website.
+stack:
+  language: javascript
+  framework: vanilla
+  styling: css
+  package_manager: none
+design:
+  enabled: false
+responsive:
+  enabled: false
+commands:
+  check: 'true'
+structure:
+  layers:
+  - path: assets
+    purpose: Static assets including CSS, JS and icons
+  - path: Photos
+    purpose: Gallery images and media
+  root_allowed:
+  - index.html
+  tests: colocated
+naming:
+- item: Scripts
+  style: lowercase
+  example: script.js
+git:
+  push: never
+  commit_format: '<type>(<scope>): <subject>'
+  scopes:
+  - name: agents
+    paths:
+    - .agents/**
+    - AGENTS.md
+    purpose: Build Forge pipeline and agent configuration
+  - name: assets
+    paths:
+    - assets/**
+    purpose: Static assets and styling
+  - name: photos
+    paths:
+    - Photos/**
+    purpose: Gallery images
+  - name: content
+    paths:
+    - index.html
+    purpose: Main page structure and content
+docs:
+  skills_dir: .agents/skills
+  repo_map: README.md
+  agents_file: AGENTS.md
+blueprints:
+  dir: .agents/blueprints
+  enabled: true
+  areas:
+  - ui
+  - data
+  - tokens
+  - layout
+rules: []
