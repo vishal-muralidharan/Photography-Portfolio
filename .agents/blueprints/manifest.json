@@ -1,0 +1,43 @@
+{
+  "analyzers": [
+    "auth",
+    "config",
+    "data",
+    "layout",
+    "tokens",
+    "ui"
+  ],
+  "areas": {
+    "config": {},
+    "data": {},
+    "layout": {
+      "assets/css/album-base.css": "ef425a4c1e95f457176e263fa40d87e9e1ff7aa7ce3e233194839d677943c8f4",
+      "assets/css/styles.css": "eeda1f69e4f1ecc19b24b379b98918f9150c4b90249ee672fcf49258813b1861",
+      "assets/pages/andaman.html": "875065f89bc4596961c4d0d8d9f623e6df14ede3ee92e269252123fcf08c3ff1",
+      "assets/pages/birds.html": "be318496242e26f4455f624d170e8bd8aad3873d4a07cbad36dd505d5106641b",
+      "assets/pages/diwali.html": "b7d30e7c06d08ab33d1424d2deb1a06b0aef150ca8480b69f8f5f7a415120aa9",
+      "assets/pages/goa-churches.html": "75b29b2cecf6c8118f1f1c24b160fa9a559e2e516fb652cee85282dc3c0ea9fb",
+      "assets/pages/goa-coast.html": "d1dce302900401ae05fe073df8cb25aa5cc6d3ca22f75942b3a8c533cf0a77d4",
+      "assets/pages/goa-streets.html": "1b58d3906c6fdeecec538f73a0d159c17da904ff6d890e736840773e4aad3f46",
+      "assets/pages/goa.html": "40cee2b9466c3832a917f77b464b5f816656abd20fc62c68d1f182e20f91f937",
+      "assets/pages/kerala-boats.html": "070ff03df0815500b373c3f60725433c87f5949f4a7b9e65e30a766d22935492",
+      "assets/pages/kerala-jeeps.html": "a06d447fb336cb77126077e99f907e38b525abab858ad2e2224790489f5e2fb1",
+      "assets/pages/kerala-people.html": "ee1c65194d5a8ffa393e01715565c126f559d350d0cc6eb5b39b154cd20874f5",
+      "assets/pages/kerala.html": "70d48c0036358488ce4ab82ebfaa23001bf2262cf644512914819c793da5e3c7",
+      "assets/pages/landscape.html": "08e66b50fa3f97f2c89ed6db0f4475669ecf0633014a5ac802930e81ed919ae6",
+      "index.html": "d2d063ac8d65e19cdc9331f393302a2784115b71efd7780dc09af2cdea371e24"
+    },
+    "tokens": {
+      "assets/css/album-base.css": "ef425a4c1e95f457176e263fa40d87e9e1ff7aa7ce3e233194839d677943c8f4",
+      "assets/css/styles.css": "eeda1f69e4f1ecc19b24b379b98918f9150c4b90249ee672fcf49258813b1861",
+      "assets/css/theme-andaman.css": "e4bc54ffc5e82c1201bba9a9676dae3af32c7340173317f2fa78c6c8920817c3",
+      "assets/css/theme-birds.css": "089fb086c711181eaad9bab168053564ee0eadfc4d320eb1253c349b7fdd8954",
+      "assets/css/theme-diwali.css": "27700ed492fd787c71d76597c977306a3cb321aa4317e2122410f890f7521e11",
+      "assets/css/theme-goa.css": "afee990744cebf8a0cad072697c6ad35f706055d91b478ad5dbdb8cdadf06709",
+      "assets/css/theme-kerala.css": "8f6a46869f5655b7d4fc8fed51ff74a26b6020c9963d6d8c7a4d92e0fe8b4988",
+      "assets/css/theme-landscape.css": "5342ed306954a0d7c71d76c8b73f0acfcd9177ac549752e4137dfc1aea90bccd"
+    },
+    "ui": {}
+  },
+  "generator_version": "0.2.0"
+}

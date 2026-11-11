@@ -1,0 +1,259 @@
+schema_version: 2
+project:
+  name: PP
+  mode: existing
+  platforms:
+  - web
+  summary: Personal photography and gallery static website.
+stack:
+  language: javascript
+  framework: vanilla
+  styling: css
+  package_manager: none
+design:
+  enabled: false
+responsive:
+  enabled: false
+commands:
+  check: 'true'
+structure:
+  layers:
+  - path: assets
+    purpose: Static assets including CSS, JS and icons
+  - path: Photos
+    purpose: Gallery images and media
+  root_allowed:
+  - index.html
+  tests: colocated
+naming:
+- item: Scripts
+  style: lowercase
+  example: script.js
+git:
+  push: never
+  commit_format: '<type>(<scope>): <subject>'
+  scopes:
+  - name: agents
+    paths:
+    - .agents/**
+    - AGENTS.md
+    purpose: Build Forge pipeline and agent configuration
+  - name: assets
+    paths:
+    - assets/**
+    purpose: Static assets and styling
+  - name: photos
+    paths:
+    - Photos/**
+    purpose: Gallery images
+  - name: content
+    paths:
+    - index.html
+    purpose: Main page structure and content
+docs:
+  skills_dir: .agents/skills
+  repo_map: README.md
+  agents_file: AGENTS.md
+blueprints:
+  dir: .agents/blueprints
+  enabled: true
+  areas:
+  - ui
+  - data
+  - tokens
+  - layout
+rules:
+- id: a11y-semantic-html
+  area: design
+  text: Use semantic HTML elements instead of generic divs with click handlers.
+  enforced_by: manual
+  pack: a11y-basics@1
+- id: a11y-visible-focus
+  area: design
+  text: Interactive elements must display high-contrast visible focus indicators.
+  enforced_by: manual
+  pack: a11y-basics@1
+- id: a11y-aa-contrast
+  area: design
+  text: Text and interactive controls must meet WCAG AA contrast standards.
+  enforced_by: manual
+  pack: a11y-basics@1
+- id: a11y-icon-button-labels
+  area: design
+  text: Icon-only controls must provide an accessible text label.
+  enforced_by: manual
+  pack: a11y-basics@1
+- id: a11y-img-has-alt
+  area: design
+  text: Image tags must include an alt attribute on the same tag line.
+  enforced_by: test
+  check:
+    type: forbid
+    pattern: <img\b(?![^>]*\balt\s*=)[^>]*>
+    include:
+    - '**/*.html'
+    - '**/*.htm'
+    - src/**/*.{jsx,tsx,vue,svelte,html}
+    hint: Add an alt attribute to the img tag. Use alt="" for decorative images.
+    examples:
+      bad:
+      - <img src="/hero.png">
+      - <img src="avatar.jpg" className="avatar" />
+      good:
+      - <img src="/hero.png" alt="Company logo" />
+      - <img src="decoration.svg" alt="" />
+      - <Image src="/hero.png" />
+  pack: a11y-basics@1
+- id: motion-respect-reduced
+  area: motion
+  text: Transitions and animations must respect prefers-reduced-motion media queries.
+  enforced_by: manual
+  pack: motion-basics@1
+- id: motion-transform-opacity-only
+  area: motion
+  text: Smooth animations must target transform and opacity properties only.
+  enforced_by: manual
+  pack: motion-basics@1
+- id: motion-no-transition-all
+  area: motion
+  text: 'Never use transition: all in stylesheets; target explicit CSS properties
+    instead.'
+  enforced_by: test
+  check:
+    type: forbid
+    pattern: (?<![\w-])transition\s*:\s*all\b
+    include:
+    - src/**/*.{css,scss,sass,less,jsx,tsx,vue,svelte}
+    hint: Specify individual transition properties like transform or opacity instead
+      of all.
+    examples:
+      bad:
+      - 'transition: all 0.2s ease;'
+      - '  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);'
+      good:
+      - 'transition: transform 0.2s ease, opacity 0.2s ease;'
+      - 'transition: color 150ms ease-in-out;'
+  pack: motion-basics@1
+- id: web-no-console
+  area: verify
+  text: Never ship console.log or console.debug calls in production source code.
+  enforced_by: test
+  check:
+    type: forbid
+    pattern: (?<![\w.$])console\.(?:log|debug)\s*\(
+    include:
+    - src/**/*.{js,jsx,ts,tsx,vue,svelte,html}
+    exclude:
+    - '**/*.test.*'
+    - '**/*.spec.*'
+    - src/test/**
+    hint: Remove console.log or console.debug, or use a dedicated logging primitive.
+    examples:
+      bad:
+      - console.log("user data:", user);
+      - console.debug("fetching auth state");
+      good:
+      - console.error("failed to initialize:", err);
+      - console.warn("deprecated property accessed");
+      - logger.log("audit event");
+  pack: web-hazards@1
+- id: web-target-blank-rel
+  area: security
+  text: Links targeting blank must include rel with noopener or noreferrer on the
+    same tag line.
+  enforced_by: test
+  check:
+    type: forbid
+    pattern: ^(?!.*rel=["\x27][^"\x27]*(?:noopener|noreferrer)).*target=["\x27]_blank["\x27]
+    include:
+    - src/**/*.{js,jsx,ts,tsx,vue,svelte,html}
+    hint: Add rel="noopener" or rel="noopener noreferrer" to links with target="_blank".
+    examples:
+      bad:
+      - <a href="https://example.com" target="_blank">External Link</a>
+      - <a target='_blank' href="https://example.com">Documentation</a>
+      good:
+      - <a href="https://example.com" target="_blank" rel="noopener">External Link</a>
+      - <a href="https://example.com" rel="noopener noreferrer" target="_blank">Documentation</a>
+      - <a href="/dashboard" target="_self">Dashboard</a>
+  pack: web-hazards@1
+- id: web-no-raw-eval
+  area: security
+  text: Never use eval() or equivalent dynamic script execution without a listed exception.
+  enforced_by: test
+  check:
+    type: forbid
+    pattern: (?<![\w$])(?:window\.)?eval\s*\(
+    include:
+    - src/**/*.{js,jsx,ts,tsx,vue,svelte,html}
+    hint: Do not use eval(). Parse structured data with JSON.parse or safe dispatch.
+    examples:
+      bad:
+      - eval(untrustedInput);
+      - window.eval("calculate()");
+      good:
+      - JSON.parse(untrustedInput);
+      - calculateValue(payload);
+  pack: web-hazards@1
+- id: web-no-inner-html
+  area: security
+  text: Never assign to innerHTML or use dangerouslySetInnerHTML without a listed
+    exception.
+  enforced_by: test
+  check:
+    type: forbid
+    pattern: (?<![\w$])(?:innerHTML\s*=|dangerouslySetInnerHTML\b)
+    include:
+    - src/**/*.{js,jsx,ts,tsx,vue,svelte,html}
+    hint: Do not inject raw HTML. Use textContent or sanitized framework primitives.
+    examples:
+      bad:
+      - container.innerHTML = renderedSnippet;
+      - '<div dangerouslySetInnerHTML={{ __html: rawHtml }} />'
+      good:
+      - container.textContent = textValue;
+      - <div className="content">{textValue}</div>
+  pack: web-hazards@1
+- id: web-no-committed-env
+  area: security
+  text: Never commit .env files containing local configurations or secrets.
+  enforced_by: test
+  check:
+    type: forbid_file
+    include:
+    - .env
+    - .env.local
+    - .env.*.local
+    - '**/.env'
+    - '**/.env.local'
+    exclude:
+    - .env.example
+    - .env.template
+    - '**/.env.example'
+    - '**/.env.template'
+    hint: Never commit .env files with secrets or local config. Add .env to .gitignore
+      and commit .env.example.
+    examples:
+      bad:
+      - .env
+      - apps/web/.env.local
+      good:
+      - .env.example
+      - apps/web/.env.template
+  pack: web-hazards@1
+quality_gates:
+- Navigate through the entire interface using only the Tab and Shift+Tab keys.
+- Inspect focus outlines in high contrast mode.
+- Enable prefers-reduced-motion in operating system settings and verify animations
+  stop or fade.
+- Inspect animation performance in DevTools to ensure zero dropped frames.
+- Confirm external links open in a new tab without access to window.opener.
+- Confirm environment variables are injected through pipeline secrets rather than
+  committed files.
+rule_packs:
+- id: a11y-basics
+  version: 1
+- id: motion-basics
+  version: 1
+- id: web-hazards
+  version: 1

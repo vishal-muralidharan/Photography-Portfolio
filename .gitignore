@@ -13,3 +13,7 @@ Thumbs.db
 
 # VS Code settings
 .vscode/
+.agents/work/
+.agents/vendor/
+__pycache__/
+*.pyc
