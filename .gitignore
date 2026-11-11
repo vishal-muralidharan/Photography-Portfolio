@@ -15,3 +15,5 @@ Thumbs.db
 .vscode/
 .agents/work/
 .agents/vendor/
+__pycache__/
+*.pyc
