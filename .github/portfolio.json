@@ -2,7 +2,7 @@
   "schema": 1,
   "public": true,
   "title": "Photography Portfolio",
-  "tagline": "This is a modern, interactive photography portfolio showcasing albums with an elegant split-panel design and flipbook-style image browsing.",
+  "tagline": "Interactive photography portfolio with a split-panel album design and flipbook-style image browsing.",
   "description": "This is a modern, interactive photography portfolio showcasing albums with an elegant split-panel design and flipbook-style image browsing. It features dynamic hero images, fullscreen lightboxes, and a responsive layout with unique color themes and glass morphism effects, all built with HTML, CSS, and Vanilla JavaScript.",
   "status": "active",
   "order": 0,
@@ -30,5 +30,7 @@
     "repo": "https://github.com/vishal-muralidharan/Photography-Portfolio"
   },
   "screenshots": [],
-  "overrides": {}
+  "overrides": {
+    "tagline": "Interactive photography portfolio with a split-panel album design and flipbook-style image browsing."
+  }
 }
