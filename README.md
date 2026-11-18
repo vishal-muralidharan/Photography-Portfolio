@@ -55,7 +55,7 @@ A modern, interactive photography portfolio website showcasing albums with an el
 - `cover-*.jpg` - Album cover images
 - `*.jpg` - Regular album photos
 
-## Local Development
+## Getting Started
 
 1. Use a local server (e.g., Live Server in VS Code)
 2. Open `index.html` or navigate to any album page
