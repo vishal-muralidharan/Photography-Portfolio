@@ -1,4 +1,10 @@
 style: showcase
-description: ''
-homepage: ''
-topics: []
+description: "Interactive photography portfolio website built with HTML5, CSS3, and JavaScript, hosted on Netlify. Features split-panel album navigation with hover-expanding panels, dynamic hero image rotator with crossfade transitions, magazine-style flipbook photo spreads with smooth pagination, frosted glassmorphism overlays, and fullscreen lightbox."
+homepage: "https://pixel-photos.netlify.app"
+topics:
+  - html
+  - css
+  - javascript
+  - netlify
+  - photography
+  - portfolio
