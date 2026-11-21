@@ -1,6 +1,6 @@
-# Photography Portfolio
+# PP
 
-An interactive photography portfolio showcasing travel, wildlife, and landscape collections with split-panel navigation and magazine-style flipbook browsing.
+Interactive photography portfolio website featuring split-panel album navigation, flipbook photo spreads, and fullscreen lightbox.
 
 Live site: https://pixel-photos.netlify.app
 
@@ -8,27 +8,28 @@ Live site: https://pixel-photos.netlify.app
 
 ## Features
 
-- 🖼️ **Split-panel navigation** lets you hover to expand album previews and navigate visually.
-- 🔄 **Dynamic hero rotator** smoothly crossfades through featured landscape and travel photography.
-- 📖 **Magazine-style flipbook** delivers fluid page turns with custom pagination for every album.
-- 🔍 **Fullscreen lightbox** enables immersive inspection of high-resolution images with caption details.
-- ✨ **Frosted glassmorphism** elevates overlays, badges, and controls with modern blur effects.
-- 🎨 **Adaptive album themes** automatically shift color palettes to match the mood of each photo collection.
-- 📱 **Responsive layouts** adapt fluidly across phones, tablets, and wide desktop displays.
+- 🖼️ **Split-panel navigation:** hover to expand album previews and browse collections visually.
+- 🔄 **Dynamic hero rotator:** crossfade through featured landscape and travel photography.
+- 📖 **Magazine-style flipbook:** turn pages fluidly with custom pagination for every album.
+- 🔍 **Fullscreen lightbox:** inspect high-resolution images in detail with captions.
+- ✨ **Frosted glassmorphism:** view overlays, badges, and controls with modern blur effects.
+- 🎨 **Adaptive album themes:** experience color palettes that shift to match the mood of each collection.
+- 📱 **Responsive layout:** browse smoothly across mobile, tablet, and wide desktop displays.
 
 ## Tech Stack
 
-- **Markup:** HTML5 with semantic landmarks and accessible attributes.
-- **Styling:** CSS3 custom properties, CSS Grid, Flexbox, and backdrop-filter blur.
-- **Scripting:** Vanilla JavaScript (ES6+) for DOM manipulation, rotator transitions, and lazy loading.
-- **Typography:** Space Grotesk via Google Fonts.
-- **Icons:** Remix Icon v4.3.0.
+- **Markup:** HTML5 with semantic landmarks
+- **Styling:** CSS3 custom properties, CSS Grid, Flexbox
+- **Scripting:** Vanilla JavaScript (ES6+)
+- **Typography:** Space Grotesk via Google Fonts
+- **Icons:** Remix Icon v4.3.0
+- **Hosting:** Netlify
 
 ## Getting Started
 
 ### Prerequisites
 
-A modern web browser such as Chrome, Safari, Firefox, or Edge.
+- Modern web browser (Chrome, Safari, Firefox, or Edge)
 
 ### Install
 
@@ -39,15 +40,15 @@ git clone https://github.com/vishal-muralidharan/Photography-Portfolio.git
 cd Photography-Portfolio
 ```
 
-No external package manager or compile step is required.
+No external package dependencies or build steps are required.
 
 ### Environment Variables
 
-No environment variables are required. All image assets and album configurations run entirely in the browser.
+No environment variables are required. All image assets and album configurations run directly in the browser.
 
 ### Run
 
-Start a local static web server from the project root:
+Start a local web server from the project root:
 
 ```bash
 python3 -m http.server 8000
@@ -57,43 +58,40 @@ Open `http://localhost:8000` in your browser.
 
 ## Scripts
 
-As a pure static site, development uses standard local web tooling:
+As a static site with no package.json, development uses standard web tooling:
 
-- `python3 -m http.server 8000`: runs a local development server on port 8000.
-- `open index.html`: opens the landing page directly in your default browser.
-- Build: assets are production-ready static files; no build step is needed.
+- `python3 -m http.server 8000`: start a local development server on port 8000.
 
 ## Tests
 
-Testing focuses on cross-browser rendering, responsive viewport verification, and image loading:
+Manual verification covers:
 
-1. **Responsive verification:** inspect layouts at mobile (375px), tablet (768px), and desktop (1280px+) viewports.
-2. **Feature checks:** verify hero rotator transitions, split-panel expansion, flipbook pagination, and lightbox zooming.
-3. **Performance:** verify lazy-loading attributes on album image tags.
+- Responsive layouts across mobile (375px), tablet (768px), and desktop (1280px) viewports
+- Feature checks for rotator transitions, split-panel expansion, flipbook pagination, and lightbox zooming
+- Lazy loading attributes on album image tags
 
 ## Project Structure
 
 ```text
 PP/
 ├── assets/
-│   ├── css/            # Global layout, album stylesheets, and theme variables
-│   ├── js/             # Rotator, flipbook viewer, and album data structures
-│   └── pages/          # Individual album viewing pages
-├── Photos/             # Full-resolution images categorized by album
-├── index.html          # Main landing page with hero rotator and album grid
-└── README.md           # Project documentation
+│   ├── css/    # Layout, album styles, and theme variables
+│   ├── js/     # Rotator, flipbook viewer, and album data
+│   └── pages/  # Individual album pages
+├── Photos/     # Photo collections categorized by album
+├── index.html  # Main landing page with hero rotator
+└── README.md   # Project documentation
 ```
 
 ## Deployment
 
-The application is deployed to Netlify.
+PP deploys to Netlify.
 
-- Continuous deployment triggers automatically on pushes to the `main` branch.
-- The publish directory is the repository root `/`.
-- Live site URL: https://pixel-photos.netlify.app
+- Continuous deployment triggers automatically on push to `main`.
+- Publish directory: repository root `/`.
+- Live site: https://pixel-photos.netlify.app
 
 ## Author and License
 
 Created by Vishal Muralidharan.
-
-Distributed under the MIT License. Copyright (c) 2025 Vishal Muralidharan.
+Distributed under the MIT License.
