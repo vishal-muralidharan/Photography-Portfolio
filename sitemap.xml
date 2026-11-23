@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://pixel-photos.netlify.app/</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://pixel-photos.netlify.app/assets/pages/andaman.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pixel-photos.netlify.app/assets/pages/birds.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pixel-photos.netlify.app/assets/pages/diwali.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pixel-photos.netlify.app/assets/pages/goa.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pixel-photos.netlify.app/assets/pages/kerala.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://pixel-photos.netlify.app/assets/pages/landscape.html</loc>
+    <priority>0.8</priority>
+  </url>
+</urlset>
