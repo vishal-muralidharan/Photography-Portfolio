@@ -58,7 +58,7 @@ Open `http://localhost:8000` in your browser.
 
 ## Scripts
 
-As a static site with no package.json, development uses standard web tooling:
+This project is a static site without a package.json or build scripts. Local development uses Python's built-in server:
 
 - `python3 -m http.server 8000`: start a local development server on port 8000.
 
