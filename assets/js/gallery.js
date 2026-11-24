@@ -41,7 +41,7 @@ function buildLightbox(){
   lb.innerHTML = `
     <button class="lb-close" aria-label="Close">×</button>
     <button class="lb-prev" aria-label="Previous">‹</button>
-    <img class="lb-img" alt="photo"/>
+    <img class="lb-img" alt="Fullscreen photo preview"/>
     <button class="lb-next" aria-label="Next">›</button>
   `;
   document.body.appendChild(lb);

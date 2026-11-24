@@ -19,7 +19,7 @@
     lb.innerHTML = `
       <button class="lb-close" aria-label="Close"><i class="ri-close-line"></i></button>
       <button class="lb-prev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>
-      <img class="lb-img" alt="photo"/>
+      <img class="lb-img" alt="Fullscreen photo preview"/>
       <button class="lb-next" aria-label="Next"><i class="ri-arrow-right-s-line"></i></button>
       <div class="lb-counter"></div>
     `;
@@ -106,9 +106,11 @@
       if(currentIndex === -1) {
         // Image not in shots array (e.g., hero image), just show it
         lbImg.src = img.src;
+        lbImg.alt = img.alt || 'Fullscreen photo preview';
         if(lbCounter) lbCounter.style.display = 'none';
       } else {
         lbImg.src = img.src;
+        lbImg.alt = img.alt || 'Fullscreen photo preview';
         if(lbCounter) lbCounter.style.display = 'block';
         updateCounter();
       }
@@ -122,6 +124,7 @@
     function step(d){
       currentIndex = (currentIndex + d + shots.length) % shots.length;
       lbImg.src = shots[currentIndex].src;
+      lbImg.alt = shots[currentIndex].alt || 'Fullscreen photo preview';
       updateCounter();
     }
     
