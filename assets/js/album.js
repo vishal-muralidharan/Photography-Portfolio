@@ -16,6 +16,9 @@
   function buildLightbox(){
     const lb = document.createElement('div');
     lb.className = 'lightbox hidden';
+    lb.setAttribute('role', 'dialog');
+    lb.setAttribute('aria-modal', 'true');
+    lb.setAttribute('aria-label', 'Photo preview');
     lb.innerHTML = `
       <button class="lb-close" aria-label="Close"><i class="ri-close-line"></i></button>
       <button class="lb-prev" aria-label="Previous"><i class="ri-arrow-left-s-line"></i></button>
@@ -72,6 +75,7 @@
     const lbImg = lb.querySelector('.lb-img');
     const lbCounter = lb.querySelector('.lb-counter');
     let currentIndex = 0;
+    let lastFocused = null;
     const shots = [];
 
     pages.forEach((set, pageIndex)=>{
@@ -102,6 +106,7 @@
       }
     }
     function open(img){
+      lastFocused = document.activeElement;
       currentIndex = shots.indexOf(img);
       if(currentIndex === -1) {
         // Image not in shots array (e.g., hero image), just show it
@@ -116,10 +121,16 @@
       }
       lb.classList.remove('hidden');
       document.body.style.overflow = 'hidden';
+      const closeBtn = lb.querySelector('.lb-close');
+      if(closeBtn) closeBtn.focus();
     }
     function close(){
       lb.classList.add('hidden');
       document.body.style.overflow = '';
+      if(lastFocused && typeof lastFocused.focus === 'function'){
+        lastFocused.focus();
+      }
+      lastFocused = null;
     }
     function step(d){
       currentIndex = (currentIndex + d + shots.length) % shots.length;
@@ -146,6 +157,19 @@
       if(e.key==='Escape') close();
       if(e.key==='ArrowLeft') step(-1);
       if(e.key==='ArrowRight') step(1);
+      if(e.key==='Tab'){
+        const focusables = Array.from(lb.querySelectorAll('button:not([disabled])'));
+        if(!focusables.length) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if(e.shiftKey && document.activeElement === first){
+          e.preventDefault();
+          last.focus();
+        } else if(!e.shiftKey && document.activeElement === last){
+          e.preventDefault();
+          first.focus();
+        }
+      }
     });
 
     // Navigation arrows for flipbook pages
